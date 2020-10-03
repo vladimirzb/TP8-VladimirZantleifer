@@ -1,13 +1,16 @@
-function buscarPeli()
+function listarPersonas()
 {
     
-        
+    const data = new FormData(document.getElementById('formulario'));
     
     
     var tbody = document.querySelector('#tbodyID');
 
   
-    fetch("testeando-clases.php")
+    fetch("controller/personaController.php?accion=listar",{
+    method:'POST',
+    body:data}
+    ) 
     .then(res => res.json())
     .then(res=>{
         console.log(res);

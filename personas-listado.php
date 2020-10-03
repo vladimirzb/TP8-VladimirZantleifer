@@ -86,7 +86,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="buscarPeli()">Buscar</button>             
+
+                <form action="personaController.php" id="formulario" method="post">
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="listarPersonas()">Buscar</button>
+                </form>
+                             
                 </div>
             </div>
 
