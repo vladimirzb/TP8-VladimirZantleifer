@@ -83,52 +83,42 @@
         
 
 
-        <!-- Listado Personas -->
+        <!-- Formulario añadir persona -->
         <div class="container">
-            <!-- Obtener personas -->
+            
             <div class="row">
+
                 <div class="col-12">
+                <form>
 
-                <form action="personaController.php" id="formulario" method="post">
-                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="listarPersonas()">Obtener personas</button>
-                </form>
-                             
-                </div>
-            </div>
-            <!-- Nueva persona -->
-            <div class="row">
-                <div class="col-12">
-
-                <form action="personas-form.php" >
-                    <button type="submit" class="btn btn-success btn-lg btn-block" onclick="">Nueva Persona</button>
-                </form>
-                             
-                </div>
-            </div>
-
-            <div class="row" id="resultadoPelis">
-                <!-- Pelis RESULTADO-->
-                <div class="col-md-12">                        
-                    <div class="card">                            
-                        
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                <th scope="col">  ID <span class="ti-text"></span> </th>
-                                <th scope="col">Nombre <span class="ti-image"></span> </th>
-                                <th scope="col">Apellido  <span class="ti-menu"></span></th>
-                                <th scope="col">DNI <span class="ti-calendar"></span></th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbodyID">
-                            
-                            </tbody>
-                        </table>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese nombre">
+                        <small class="form-text text-muted">Campo obligatorio</small>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Apellido</label>
+                        <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese apellido">
+                        <small class="form-text text-muted">Campo obligatorio</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">DNI</label>
+                        <input type="number" class="form-control" id="inputApellido" placeholder="Ingrese DNI">
+                        <small class="form-text text-muted">Campo obligatorio</small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Agregar Persona</button>
+                </form>
+
+
                 </div>
-
-
+    
             </div>
+            
+
+          
         </div>
 
     </div><!-- /#right-panel -->
