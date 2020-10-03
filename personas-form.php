@@ -146,7 +146,7 @@
 
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/init-scripts/chart-js/chartjs-init.js"></script>
-    <script src="misFunciones2.js"></script>
+    <script src="fetchPHP.js"></script>
 
 </body>
 
