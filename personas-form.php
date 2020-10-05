@@ -89,27 +89,28 @@
             <div class="row">
 
                 <div class="col-12">
-                <form>
+                
+                <form action="personaController.php" id="formularioAgregarPersona" method="post" >
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese nombre">
+                        <input type="text"  name="nombre" class="form-control" id="nombre" placeholder="Ingrese nombre">
                         <small class="form-text text-muted">Campo obligatorio</small>
                     </div>
                     
                     <div class="form-group">
                         <label for="exampleInputEmail1">Apellido</label>
-                        <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese apellido">
+                        <input type="text"   name="apellido" class="form-control" id="apellido" placeholder="Ingrese apellido">
                         <small class="form-text text-muted">Campo obligatorio</small>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">DNI</label>
-                        <input type="number" class="form-control" id="inputApellido" placeholder="Ingrese DNI">
+                        <input type="number"  name="dni" class="form-control" id="dni" placeholder="Ingrese DNI">
                         <small class="form-text text-muted">Campo obligatorio</small>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Agregar Persona</button>
+                    <button type="button" class="btn btn-primary" onclick="agregarPersona()" >Agregar Persona</button>
                 </form>
 
 
@@ -144,8 +145,7 @@
     <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
 
 
-    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="assets/js/init-scripts/chart-js/chartjs-init.js"></script>
+    
     <script src="fetchPHP.js"></script>
 
 </body>

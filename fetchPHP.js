@@ -37,3 +37,18 @@ function listarPersonas()
     })
 }
 
+function agregarPersona()
+{
+    
+    const data = new FormData(document.getElementById('formularioAgregarPersona'));
+    // var obj = JSON.stringify(Object.fromEntries(data));
+    // controller/personaController.php?accion=nuevo
+
+    fetch("testeando-clases.php",{
+    method:'POST',
+    body:data}) 
+    .then(console.log(res))
+    
+    
+
+}
