@@ -8,13 +8,29 @@ switch ($accion) {
         $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $_GET['nombre']; //RECIBO EL PARAMETRO ACCION
         $apellido = isset($_POST['apellido']) ? $_POST['apellido'] : $_GET['apellido']; //RECIBO EL PARAMETRO ACCION
         $dni = isset($_POST['dni']) ? $_POST['dni'] : $_GET['dni']; //RECIBO EL PARAMETRO ACCION
+
+        // bools de validacion
+        $boolLargoDni=false;
+        $boolinputsCargadas=false;
+
+        if (strlen($dni) <=8 ) {
+            $boolLargoDni=true;
+        }
+
+        if ($nombre != "" && $apellido!= "" && $dni !="") {
+            $boolinputsCargadas=true;
+        }
         
-        $personaAAgregar = new persona();
-        $personaAAgregar -> nombre = $nombre;
-        $personaAAgregar -> apellido = $apellido;
-        $personaAAgregar -> dni = $dni;
+        if ($boolLargoDni==true && $boolinputsCargadas==true) 
+        {
+            $personaAAgregar = new persona();
+            $personaAAgregar -> nombre = $nombre;
+            $personaAAgregar -> apellido = $apellido;
+            $personaAAgregar -> dni = $dni;
+            
+            echo  PersonaDao::agregarPersona($personaAAgregar);
+        }
         
-        echo  PersonaDao::agregarPersona($personaAAgregar);
         break;
     case 'modificar':
         //logica

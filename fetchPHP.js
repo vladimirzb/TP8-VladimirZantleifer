@@ -80,6 +80,8 @@ function agregarPersona()
             .then(res=>{
                 console.log(res);
             })
+        alert("Persona agregada exitosamente!");
+
     }
     
         
