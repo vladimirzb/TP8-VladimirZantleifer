@@ -91,7 +91,7 @@
                 <div class="col-12">
                 
                 <form action="personaController.php" id="formularioAgregarPersona" method="post" >
-
+                    <input id="accion" name="accion" type="hidden" value="nuevo">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text"  name="nombre" class="form-control" id="nombre" placeholder="Ingrese nombre">

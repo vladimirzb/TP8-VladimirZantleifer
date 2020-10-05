@@ -44,11 +44,12 @@ function agregarPersona()
     // var obj = JSON.stringify(Object.fromEntries(data));
     // controller/personaController.php?accion=nuevo
 
-    fetch("testeando-clases.php",{
+    fetch("/controller/personaController.php",{
     method:'POST',
     body:data}) 
-    .then(console.log(res))
-    
-    
-
+    .then(res => res.text())
+    .then(res=>{
+        console.log(res);
+    })
+        
 }
