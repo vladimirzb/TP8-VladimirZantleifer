@@ -1,15 +1,14 @@
 function listarPersonas()
 {
     
-    const data = new FormData(document.getElementById('formulario'));
+    
     
     
     var tbody = document.querySelector('#tbodyID');
 
   
     fetch("controller/personaController.php?accion=listar",{
-    method:'POST',
-    body:data}
+    method:'POST'}
     ) 
     .then(res => res.json())
     .then(res=>{

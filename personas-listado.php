@@ -30,7 +30,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body onload="listarPersonas()" >
     <!-- Left Panel -->
 
     <?php include('includes/menu.php')  ?>
@@ -87,13 +87,13 @@
         <div class="container">
             <!-- Obtener personas -->
             <div class="row">
-                <div class="col-12">
+                <!-- <div class="col-12">
 
                 <form action="personaController.php" id="formulario" method="post">
                     <button type="button" class="btn btn-primary btn-lg btn-block" onclick="listarPersonas()">Obtener personas</button>
                 </form>
                              
-                </div>
+                </div> -->
             </div>
             <!-- Nueva persona -->
             <div class="row">
