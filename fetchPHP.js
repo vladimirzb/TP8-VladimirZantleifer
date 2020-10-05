@@ -43,12 +43,44 @@ function agregarPersona()
     // var obj = JSON.stringify(Object.fromEntries(data));
     // controller/personaController.php?accion=nuevo
 
-    fetch("/controller/personaController.php",{
-    method:'POST',
-    body:data}) 
-    .then(res => res.text())
-    .then(res=>{
-        console.log(res);
-    })
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var dni = document.getElementById("dni").value;
+
+    var boolCamposLlenos=false;
+    var boolDnilargo=false;
+
+    if (nombre=="" | apellido=="" | dni==""  ) 
+    {
+        alert("Complete todos los campos para agregar a la perosna");
+        boolCamposLlenos=false;
+    }
+    
+    else {
+        boolCamposLlenos=true;
+
+    }
+
+    if (dni.length <=8 ) {
+        boolDnilargo=true;
+    }
+    else
+    {
+        alert("Ponga un dni numerico con 8 caracteres");
+        boolDnilargo=false;
+    }
+    
+    
+
+    if (boolCamposLlenos==true && boolDnilargo==true) {
+        fetch("/controller/personaController.php",{
+            method:'POST',
+            body:data}) 
+            .then(res => res.text())
+            .then(res=>{
+                console.log(res);
+            })
+    }
+    
         
 }
