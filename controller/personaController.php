@@ -12,6 +12,7 @@ switch ($accion) {
         // bools de validacion
         $boolLargoDni=false;
         $boolinputsCargadas=false;
+        $boolSeRepitio=true;
 
         if (strlen($dni) <=8 ) {
             $boolLargoDni=true;
@@ -21,15 +22,24 @@ switch ($accion) {
             $boolinputsCargadas=true;
         }
         
-        if ($boolLargoDni==true && $boolinputsCargadas==true) 
+        //Obtener por dni
+        
+        
+        if ($boolLargoDni==true && $boolinputsCargadas==true && $boolSeRepitio==false) 
         {
             $personaAAgregar = new persona();
             $personaAAgregar -> nombre = $nombre;
             $personaAAgregar -> apellido = $apellido;
             $personaAAgregar -> dni = $dni;
             
-            echo  PersonaDao::agregarPersona($personaAAgregar);
+            PersonaDao::agregarPersona($personaAAgregar);
         }
+        else
+        {
+            //Validaciones Correctas
+         echo ("Hubo error");
+        }
+        
         
         break;
     case 'modificar':

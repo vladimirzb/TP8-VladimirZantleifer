@@ -1,8 +1,5 @@
 function listarPersonas()
-{
-    
-    
-    
+{  
     
     var tbody = document.querySelector('#tbodyID');
 
@@ -49,7 +46,8 @@ function agregarPersona()
 
     var boolCamposLlenos=false;
     var boolDnilargo=false;
-
+    var boolDniNoSeRepitio=true;
+    ///
     if (nombre=="" | apellido=="" | dni==""  ) 
     {
         alert("Complete todos los campos para agregar a la perosna");
@@ -60,7 +58,7 @@ function agregarPersona()
         boolCamposLlenos=true;
 
     }
-
+    ///
     if (dni.length <=8 ) {
         boolDnilargo=true;
     }
@@ -69,16 +67,17 @@ function agregarPersona()
         alert("Ponga un dni numerico con 8 caracteres");
         boolDnilargo=false;
     }
-    
-    
+     
 
-    if (boolCamposLlenos==true && boolDnilargo==true) {
+    if (boolCamposLlenos==true && boolDnilargo==true) 
+    {
         fetch("/controller/personaController.php",{
             method:'POST',
             body:data}) 
             .then(res => res.text())
             .then(res=>{
                 console.log(res);
+                alert(res);
             })
         alert("Persona agregada exitosamente!");
 
