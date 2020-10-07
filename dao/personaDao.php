@@ -79,6 +79,52 @@ class PersonaDao{
     }
 
 
+    public static function obtenerPorDNI($DNI)
+    {
+
+        //ME CONECTO CON LA BASE DE DATOS Y DEFINO MIS CREDENCIALES. HAGO EL OPEN DE MI CONEXION
+
+        $DBH = new PDO("mysql:host=127.0.0.1;dbname=tp8-bd-vladimir", "root", "");
+        
+        //EN UNA VARIABLE DEFINO LA QUERY QUE DESEO EJECUTAR. PUEDE SER UN SELECT, INSERT, UPDATE, O DELETE. OBSEVAR QUE LOS PARAMETROS (CAMPOS DINAMICOS) SE PASAN UTILIZANDO ":" .
+
+        $query = 'SELECT * FROM Persona WHERE persona.dni = :dni';
+
+        //LE DEFINO LA QUERY A MI OBJETO DE CONEXION.
+
+        $STH = $DBH->prepare($query);
+        $STH->setFetchMode(PDO::FETCH_ASSOC);
+
+        //CREO UN ARRAY CON PARAMETROS EN CASO DE QUE LA CONSULTA LOS REQUIERA
+
+        $params = array(                                
+            ":dni" => $DNI
+        );
+
+        //EJECUTO LA CONSULTA PASANDO COMO PARAMETROS EL ARRAY DE PARAMETROS.(SI ES UN SELECT QUE NO REQUIERE PASAR PARAMETROS NO SE PASA NADA)
+
+        $STH->execute($params);
+
+        //CONSULTO SI HAY REGISTROS COMO RESULTADO DEL SELECT
+        $lista = array();
+
+        if ($STH->rowCount() > 0) {
+
+            //RECORRO CADA FILA
+            while($row = $STH->fetch()) {
+                $UnaPersona = new persona();
+                $UnaPersona->id= $row['id'];
+                $UnaPersona->nombre=  $row['nombre'];
+                $UnaPersona->apellido=  $row['apellido'];
+                $UnaPersona->dni=  $row['dni']; 
+                
+                $lista[] = $UnaPersona;
+
+            }
+        }
+        return $lista;
+    }
+
 }
 
 

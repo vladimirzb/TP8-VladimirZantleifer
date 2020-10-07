@@ -12,7 +12,7 @@ switch ($accion) {
         // bools de validacion
         $boolLargoDni=false;
         $boolinputsCargadas=false;
-        $boolSeRepitio=true;
+        $boolSeRepitio=false;
 
         if (strlen($dni) <=8 ) {
             $boolLargoDni=true;
@@ -23,6 +23,15 @@ switch ($accion) {
         }
         
         //Obtener por dni
+        $resultado =  PersonaDao::obtenerPorDNI($dni);
+
+        foreach ($resultado as $valor) {
+            if ($valor->dni == $dni ) {
+                $boolSeRepitio=true;
+            }
+        }
+        // $array ahora es array(2, 4, 6, 8)
+        unset($valor); // rompe la referencia con el último elemento
         
         
         if ($boolLargoDni==true && $boolinputsCargadas==true && $boolSeRepitio==false) 
@@ -33,11 +42,14 @@ switch ($accion) {
             $personaAAgregar -> dni = $dni;
             
             PersonaDao::agregarPersona($personaAAgregar);
+            echo ("Persona agregada exitosamente");
         }
         else
         {
-            //Validaciones Correctas
-         echo ("Hubo error");
+            if ($boolSeRepitio==true) {
+                echo ("El dni ingresado ya esta registrado");
+            }
+         
         }
         
         

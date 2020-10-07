@@ -79,7 +79,7 @@ function agregarPersona()
                 console.log(res);
                 alert(res);
             })
-        alert("Persona agregada exitosamente!");
+        
 
     }
     
